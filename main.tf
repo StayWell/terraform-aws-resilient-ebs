@@ -1,8 +1,8 @@
 resource "aws_ebs_volume" "this" {
-  availability_zone = "${var.availability_zone}"
-  size              = "${var.size}"
-  snapshot_id       = "${var.snapshot_id}"
-  encrypted         = "${var.encrypted}"
+  availability_zone = var.availability_zone
+  size              = var.size
+  snapshot_id       = var.snapshot_id
+  encrypted         = var.encrypted
   type              = "gp2"
-  tags              = "${merge(map("Name", "${var.env}"), var.tags)}"
+  tags              = merge({ "Name" = var.env }, var.tags)
 }
