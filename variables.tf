@@ -23,6 +23,21 @@ variable "env" {
   default     = "default"
 }
 
+variable "cold_storage_after" {
+  description = "(optional) https://www.terraform.io/docs/providers/aws/r/backup_plan.html#cold_storage_after"
+  default     = "30"
+}
+
+variable "delete_after" {
+  description = "(optional) https://www.terraform.io/docs/providers/aws/r/backup_plan.html#delete_after"
+  default     = "120"
+}
+
+variable "schedule" {
+  description = "(optional) https://www.terraform.io/docs/providers/aws/r/backup_plan.html#schedule"
+  default     = "cron(0 5 ? * * *)"
+}
+
 variable "tags" {
   description = "(optional) Additional tags applied to all resources"
   default     = {}
