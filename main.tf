@@ -5,4 +5,8 @@ resource "aws_ebs_volume" "this" {
   encrypted         = var.encrypted
   type              = "gp2"
   tags              = merge({ "Name" = var.env }, var.tags)
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
